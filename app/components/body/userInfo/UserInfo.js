@@ -10,30 +10,24 @@ export default function UserInfo() {
   const ageInput = useRef(null);
 
   const updateUser = () => {
-    if (nameInput.current.value === "" || ageInput.current.value === "") return;
-
     showUserData.current.innerText = `Hello ${name} your age is ${age}`;
   };
 
   return (
     <View>
-      {/* this is a label */}
       <Text>Enter Your name:</Text>
       <TextInput
-        value={name}
         placeHolder="e.g John Smith"
-        onChange={(val) => setName(val.target.value)}
+        onChange={(val) => setName(val)}
         styles={styles.inputFiled}
         ref={nameInput}
       />
 
-      {/* this is a label */}
       <Text>Enter Your age:</Text>
       <TextInput
         placeHolder="e.g 19"
         keyboardType="numeric"
-        value={age}
-        onChange={(val) => setAge(val.target.value)}
+        onChange={(val) => setAge(val)}
         styles={styles.inputFiled}
         ref={ageInput}
       />
@@ -49,13 +43,12 @@ export default function UserInfo() {
 
 const styles = StyleSheet.create({
   inputFiled: {
-    width: "60vw",
+    width: 200,
     borderWidth: 1,
     borderColor: "#a3a3a336",
     borderStyle: "solid",
   },
   buttonStyle: {
-    backgroundColor: "#fff",
     textTransform: "lowercase",
   },
 });

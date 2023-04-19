@@ -1,42 +1,34 @@
 import React, { useRef, useState } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  ScrollView,
+} from "react-native";
 
-function Header(props) {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-
-  const showUserData = useRef(null);
-  const nameInput = useRef(null);
-  const ageInput = useRef(null);
-
-  const updateUser = () => {
-    showUserData.current.innerText = `Hello ${name} your age is ${age}`;
-  };
+function Header() {
+  const [names, setName] = useState([
+    { name: "Ahmed", key: 1 },
+    { name: "Mohamed", key: 2 },
+    { name: "Ali", key: 3 },
+    { name: "Ibrahim", key: 5 },
+    { name: "Yassen", key: 6 },
+    { name: "Sami", key: 7 },
+  ]);
 
   return (
     <View style={styles.header}>
-      <Text>Enter Your name:</Text>
-      <TextInput
-        placeHolder="e.g John Smith"
-        onChange={(val) => setName(val)}
-        styles={styles.inputFiled}
-        ref={nameInput}
-      />
-
-      <Text>Enter Your age:</Text>
-      <TextInput
-        placeHolder="e.g 19"
-        keyboardType="numeric"
-        onChange={(val) => setAge(val)}
-        styles={styles.inputFiled}
-        ref={ageInput}
-      />
-
-      <View>
-        <Button title="Update" onPress={updateUser} />
-      </View>
-
-      <Text ref={showUserData}></Text>
+      <ScrollView>
+        {names.map((item) => {
+          return (
+            <View key={item.key}>
+              <Text style={styles.listNames}>{item.name}</Text>
+            </View>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 }
@@ -52,12 +44,19 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   inputFiled: {
-    marginTop: 15,
-    marginEnd: 15,
-    width: 200,
+    marginTop: 10,
+    marginBottom: 10,
+    padding: 8,
+    width: 350,
     borderWidth: 1,
     borderColor: "#a3a3a336",
     borderStyle: "solid",
+  },
+  listNames: {
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: "#a3a3a336",
+    marginHorizontal: 20,
   },
 });
 export default Header;

@@ -17,9 +17,9 @@ export default function UserInfo() {
     <View>
       <Text>Enter Your name:</Text>
       <TextInput
-        placeHolder="e.g John Smith"
+        placeholder="e.g John Smith"
         onChange={(val) => setName(val)}
-        styles={styles.inputFiled}
+        style={styles.inputFiled}
         ref={nameInput}
       />
 
@@ -28,7 +28,7 @@ export default function UserInfo() {
         placeHolder="e.g 19"
         keyboardType="numeric"
         onChange={(val) => setAge(val)}
-        styles={styles.inputFiled}
+        style={styles.inputFiled}
         ref={ageInput}
       />
 

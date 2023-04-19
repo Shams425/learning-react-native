@@ -7,9 +7,7 @@ export default function App() {
   return (
     <View>
       <Header styles={styles.header} />
-      <View style={styles.container}>
-        <UserInfo />
-      </View>
+      <UserInfo />
     </View>
   );
 }
